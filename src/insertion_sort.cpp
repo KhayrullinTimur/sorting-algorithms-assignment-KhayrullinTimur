@@ -8,13 +8,17 @@ namespace assignment {
 
   int linear_search(const std::vector<int>& arr, int index) {
 
-    // итерация всех предыдущих элементов [0, index - 1] (они находятся в отсортированном порядке)
-    for (int curr_pos = -1 /* ... */; false /* условие ... */; /* обновление curr_pos ... */) {
+    int ins_pos = index;
 
+    // итерация всех предыдущих элементов [0, index - 1] (они находятся в отсортированном порядке)
+    for (int curr_pos = index - 1; arr[index] < arr[curr_pos]; curr_pos--) {
       // если текущий элемент меньше или равен вставляемому, позиция для вставки найдена ...
+      ins_pos = curr_pos;
+
+
     }
 
-    return -1;  // здесь что-то не так ...
+    return ins_pos;  // здесь что-то не так ...
   }
 
   int binary_search(const std::vector<int>& arr, int index) {
@@ -51,6 +55,8 @@ namespace assignment {
 
       // поиск индекса для вставки элемента с индексом index в область [0, index - 1]
       const int ins_index = searcher_(arr, index);
+
+        std::copy(arr.begin() + ins_index, arr.begin() + index, arr.begin() + index + 1);
 
       // если индекс вставки не совпадает с текущей позицией элемента,
       // производим вставку элемента на вычисленную позицию (std::copy или цикл for) ...

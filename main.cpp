@@ -15,7 +15,7 @@ using namespace assignment;
 
 int main() {
 
-  std::vector<int> arr = {-39, -79};
+  std::vector<int> arr = {1, 3, 5, 4, 2};
 
   InsertionSort sort;
   sort.Sort(arr);
